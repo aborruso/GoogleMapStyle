@@ -29,7 +29,7 @@
 		}
 		];
 		var styledMap = new google.maps.StyledMapType(styles,
-			{name: "Styled Map"});
+			{name: "Grigia"});
 		var Arca = new google.maps.LatLng(38.10055,13.34441);
 
 		var mapOptions = {
@@ -37,7 +37,7 @@
 			mapTypeControlOptions: {
 				mapTypeIds: [google.maps.MapTypeId.ROADMAP, 'map_style']
 			},
-			zoom: 16
+			zoom: 14
 		};
 		var map = new google.maps.Map(document.getElementById("map-canvas"),
 			mapOptions);
