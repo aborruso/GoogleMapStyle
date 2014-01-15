@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+	<style type="text/css">
+	html { height: 100% }
+	body { height: 100%; margin: 0; padding: 0 }
+	#map-canvas { height: 100% }
+	</style>
+	<script type="text/javascript"
+	src="http://maps.googleapis.com/maps/api/js?key=AIzaSyC23-oGrJbhKTjg3jEGZvjWN87jCfXIyHo&sensor=true">
+	</script>
+	<script type="text/javascript">
+	function initialize() {
+		var styles = [
+		{
+			stylers: [
+			// Per cambiare il colore di base modificare il valore di hue sottostante
+			{ hue: "#F1EEE8" },
+			{ saturation: -20 }
+			]
+		},{
+			featureType: "road",
+			elementType: "geometry",
+			stylers: [
+			{ lightness: 100 },
+			{ visibility: "simplified" }
+			]
+		}
+		];
+		var styledMap = new google.maps.StyledMapType(styles,
+			{name: "Styled Map"});
+		var Arca = new google.maps.LatLng(38.10055,13.34441);
+
+		var mapOptions = {
+			center: new google.maps.LatLng(38.10055,13.34441),
+			mapTypeControlOptions: {
+				mapTypeIds: [google.maps.MapTypeId.ROADMAP, 'map_style']
+			},
+			zoom: 17
+		};
+		var map = new google.maps.Map(document.getElementById("map-canvas"),
+			mapOptions);
+		
+		var marker = new google.maps.Marker({
+			position: Arca,
+			map: map,
+			title:"Arca"
+		});
+
+		center = new google.maps.LatLng(38.10055,13.34441)
+		map.mapTypes.set('map_style', styledMap);
+		map.setMapTypeId('map_style');
+
+	}
+	google.maps.event.addDomListener(window, 'load', initialize);
+	</script>
+</head>
+<body>
+	<div id="map-canvas" style="width: 100%; height: 100%"></div>
+</body>
+</html>
